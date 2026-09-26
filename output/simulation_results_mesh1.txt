@@ -1,0 +1,19 @@
+======================================================================
+ABAQUS SIMULATION RESULTS - JOB_MESH1_16MM (COMPLETED)
+Index: 210494 | Applied Torque: 494 N*m (494,000 N*mm)
+Total Increments: 20 | Completed Step Time: 1.00 (100%)
+======================================================================
+
+1. PEAK VON MISES STRESS (S):
+   Max Mises Stress = 42.50 MPa
+   Location: Element 10445
+
+2. PEAK EQUIVALENT PLASTIC STRAIN (PEEQ):
+   Max PEEQ = 0.000000 (0.0000%)
+   Location: Element 1
+   -> Stresses remained in elastic regime.
+
+3. OVERALL DISPLACEMENT (U):
+   Max Displacement Magnitude = 0.0111 mm
+   Location: Node 67659
+

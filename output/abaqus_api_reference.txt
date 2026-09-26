@@ -1,0 +1,145 @@
+================================================================================
+ABAQUS 2024 OFFICIAL BUILT-IN API REFERENCE & METHOD SIGNATURES
+================================================================================
+
+[1] MESHING API:
+----------------------------------------
+Part.setMeshControls:
+Python Library Documentation: AbaqusMethod object
+
+sseettMMeesshhCCoonnttrroollss = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+
+Part.setElementType:
+Python Library Documentation: AbaqusMethod object
+
+sseettEElleemmeennttTTyyppee = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+
+Part.seedPart:
+Python Library Documentation: AbaqusMethod object
+
+sseeeeddPPaarrtt = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+
+Part.generateMesh:
+Python Library Documentation: AbaqusMethod object
+
+ggeenneerraatteeMMeesshh = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+
+[2] JOB CREATION & EXECUTION API:
+----------------------------------------
+mdb.Job constructor:
+Python Library Documentation: AbaqusMethod object
+
+JJoobb = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+
+Job.submit:
+Python Library Documentation: AbaqusMethod object
+
+ssuubbmmiitt = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+
+Job.waitForCompletion:
+Python Library Documentation: AbaqusMethod object
+
+wwaaiittFFoorrCCoommpplleettiioonn = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+
+Job.writeInput:
+Python Library Documentation: AbaqusMethod object
+
+wwrriitteeIInnppuutt = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+
+[3] ODB POST-PROCESSING API:
+----------------------------------------
+odbAccess.openOdb:
+Python Library Documentation: AbaqusMethod object
+
+ooppeennOOddbb = class AbaqusMethod(object)
+ |  Define behavior of Method in ABAQUS
+ |  
+ |  Methods defined here:
+ |  
+ |  ____ccaallll____(self, /, *args, **kwargs)
+ |      Call self as a function.
+ |  
+ |  ____rreepprr____(self, /)
+ |      Return repr(self).
+
+

@@ -1,0 +1,72 @@
+Presentation: Simulation presentation.pptx
+Total Slides: 13
+
+--- SLIDE 1 ---
+  [Text]: 3D Contact Stress & Plasticity Analysis of Spur Gears
+  [Text]: FEA Design Project
+  [Text]: 210494DPremakumara H.P.S.
+  [Text]: MT4810
+  [Text]: 1
+
+--- SLIDE 2 ---
+  [Text]: Objectives & Engineering Strategy
+  [Text]: 2
+  [Text]: Strategic Implementation:Modeling: Parametric CAD via Solid Edge 2025 (Exact Involute).Simulation: Full 3D Analysis (Beyond 2D Plane Strain).Optimization: Mesh Partitioning for max efficiency.
+  [Text]: Primary Goal: ⚙️ 3D Contact Stress Analysis🧪 Plastic Deformation (PEEQ) Prediction📉 Mesh Convergence Study
+
+--- SLIDE 3 ---
+  [Text]: Geometric Design Parameters
+  [Text]: 3
+
+--- SLIDE 4 ---
+  [Text]: Critical Engineering Assumptions
+  [Text]: 4
+
+--- SLIDE 5 ---
+  [Text]: Simulation Workflow
+  [Text]: 5
+
+--- SLIDE 6 ---
+  [Text]: Material Definition: Stainless Steel
+  [Text]: 6
+  [Text]: Plastic Properties:Yield Strength: ~250 MPa
+  [Text]: Elastic Properties:Young's Modulus (𝐸): 193 GPa (approx.) Poisson's Ratio (𝜈): 0.3
+
+--- SLIDE 7 ---
+  [Text]: Parametric CAD Generation
+  [Text]: 7
+  [Text]: Input Parameters based on index calculations
+  [Text]: Generated Assembly with precise Involute Profile
+
+--- SLIDE 8 ---
+  [Text]: Parametric CAD Generation
+  [Text]: 8
+  [Text]: Input Parameters based on index calculations
+  [Text]: Generated Assembly with precise Involute Profile
+
+--- SLIDE 9 ---
+  [Text]: Parametric CAD Generation
+  [Text]: 9
+  [Text]: Input Parameters based on index calculations
+  [Text]: Generated Assembly with precise Involute Profile
+
+--- SLIDE 10 ---
+  [Text]: CAD to CAE Integration
+  [Text]: 10
+  [Text]: Import Format: STEP (.stp)Method: Direct Assembly Import (Maintained Solid Edge coordinates).Advantage: Eliminates manual positioning errors in FEA environment.
+  [Text]: Imported Assembly Abaqus
+
+--- SLIDE 11 ---
+  [Text]: Material Definition
+  [Text]: 11
+  [Text]: Non-linear Material definition with Plasticity data for Stainless Steel
+  [Text]: Material: Stainless SteelBehavior: ElastoplasticYield Criterion: Von Mises (Isotropic Hardening).
+
+--- SLIDE 12 ---
+  [Text]: 12
+  [Text]: Material Assignment successful
+
+--- SLIDE 13 ---
+  [Text]: 13
+  [Text]: Enabling Non-linear Geometry (Nlgeom) to account for large displacements and contact
+

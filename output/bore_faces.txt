@@ -1,0 +1,7 @@
+Searching Pinion-1 faces:
+  Face 22 at point (1.297753, 9.915434, 10.0), radius=10.000
+Total Pinion bore faces found: 1
+
+Searching Gear-1 faces:
+  Face 102 at point (-0.985661, 286.448695, 10.0), radius=10.000
+Total Gear bore faces found: 1

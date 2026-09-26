@@ -1,0 +1,24 @@
+# Large Abaqus Output Databases (GitHub limit is 100MB)
+*.odb
+*.cae
+*.jnl
+*.inp
+*.com
+*.msg
+*.dat
+*.prt
+*.sta
+abaqus.rpy*
+abaqus*.rec
+
+# Web development build artifacts
+node_modules/
+dist/
+.vite/
+*.local
+
+# System & IDE files
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
