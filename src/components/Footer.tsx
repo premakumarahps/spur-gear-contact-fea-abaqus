@@ -2,8 +2,7 @@ import {
   Activity, 
   ArrowUp, 
   Download, 
-  Code2 
-} from 'lucide-react';
+  Code2, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -175,6 +174,28 @@ export const Footer: React.FC = () => {
           <p className="text-slate-400 font-mono text-center sm:text-left">
             © 2026 Spur Gear 3D FEA Simulation &amp; Convergence Study • Student Index: <strong>210494</strong>
           </p>
+
+          <div className="flex items-center gap-4 text-xs">
+            <a
+              href="https://github.com/premakumarahps/spur-gear-contact-fea-abaqus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <span>GitHub Repository</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href="https://premakumarahps.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <span>Main Portfolio</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
 
           <button
             onClick={scrollToTop}
