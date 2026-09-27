@@ -1,0 +1,33 @@
+
+============================================================
+p.setMeshControls
+============================================================
+Doc: Part.setMeshControls(regions <, elemShape, technique, algorithm, minTransition, sizeGrowth, allowMapped>) -> This method sets the mesh control parameters for the specified regions.
+
+============================================================
+p.setElementType
+============================================================
+Doc: Part.setElementType(regions, elemTypes) -> This method assigns element types to the specified regions.
+
+============================================================
+p.seedPart
+============================================================
+Doc: Part.seedPart(regions, size <, deviationFactor, minSizeFactor, constraint>) -> This method assigns global edge seeds to the given parts.
+
+============================================================
+p.generateMesh
+============================================================
+Doc: Part.generateMesh(regions <, seedConstraintOverride, meshTechniqueOverride, boundaryPreview, boundaryMeshOverride>) -> This method generates a mesh in the given parts or regions.
+
+============================================================
+mdb.Job
+============================================================
+Doc: Mdb.Job(name, model <, description, type, queue, waitHours, waitMinutes, atTime, echoPrint, contactPrint, modelPrint, historyPrint, scratch, userSubroutine, numCpus, memory, memoryUnits, explicitPrecision, nodalOutputPrecision, parallelizationMethodExplicit, numDomains, activateLoadBalancing, multiprocessingMode>) -> This method creates an analysis job using a model on a model database (MDB) for the model definition.
+
+============================================================
+odbAccess.openOdb
+============================================================
+Doc: sys.modules['odbAccess'].openOdb(path) -> This method opens an existing output database (.odb) file and creates a new Odb object. You typically execute this method outside of Abaqus/CAE when, in most cases, only one output database is open at any time. For example,
+
+import odbAccess
+shockLoadOdb = odbAccess.openOdb(path='myOdb.odb')

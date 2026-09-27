@@ -1,4 +1,0 @@
-Seed: 20.0 mm | Dev: 0.20 | Nodes:  126065 | Elements:   81952
-Seed: 25.0 mm | Dev: 0.30 | Nodes:  133026 | Elements:   88105
-Seed: 30.0 mm | Dev: 0.40 | Nodes:  130244 | Elements:   86214
-Seed:  9.0 mm | Dev: 0.10 | Nodes:  174807 | Elements:  113902

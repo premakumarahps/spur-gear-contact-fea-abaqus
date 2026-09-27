@@ -1,4 +1,0 @@
-Seed: 16.0 mm | Total Nodes:  140518 | Total Elements:   91707 | (Pinion: 11530, Gear: 80177)
-Seed: 12.0 mm | Total Nodes:  156966 | Total Elements:  102134 | (Pinion: 18711, Gear: 83423)
-Seed:  9.0 mm | Total Nodes:  174807 | Total Elements:  113902 | (Pinion: 22399, Gear: 91503)
-Seed:  6.0 mm | Total Nodes:  512163 | Total Elements:  348981 | (Pinion: 40104, Gear: 308877)

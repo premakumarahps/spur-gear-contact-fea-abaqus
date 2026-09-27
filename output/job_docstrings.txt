@@ -1,6 +1,0 @@
-Job.submit: Job.submit(<consistencyChecking, datacheckJob, continueJob>) -> This method submits a job for analysis.
-
-Job.waitForCompletion: Job.waitForCompletion() -> This method interrupts the execution of the script until the end of the analysis. If you call the waitForCompletion method and the status member is neither SUBMITTED nor RUNNING, Abaqus assumes the analysis has either completed or aborted and returns immediately. 
-
-Job.writeInput: ModelJob.writeInput(<consistencyChecking>) -> This method writes an input file.
-

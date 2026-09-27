@@ -1,0 +1,186 @@
+Presentation: Simulation presentation.pptx
+Total Slides: 13
+
+=== SLIDE 1 (ppt/slides/slide1.xml) ===
+  - 3D Contact Stress & Plasticity Analysis of Spur Gears
+  - FEA Design Project
+  - 210494D
+  - Premakumara H.P.S. 
+  - MT4810
+  - 1
+
+=== SLIDE 2 (ppt/slides/slide2.xml) ===
+  - Objectives & Engineering Strategy
+  - 2
+  - Strategic Implementation:
+  - Modeling: Parametric CAD via Solid Edge 2025 (Exact Involute).
+  - Simulation: Full 3D Analysis (Beyond 2D Plane Strain).
+  - Optimization: Mesh Partitioning for max efficiency.
+  - Primary Goal:
+  -  
+  - ⚙️ 3D Contact Stress Analysis
+  - 🧪 Plastic Deformation (PEEQ) Prediction
+  - 📉 Mesh Convergence Study
+
+=== SLIDE 3 (ppt/slides/slide3.xml) ===
+  - Geometric Design Parameters
+  - Parameter
+  - Value
+  - Derivation Logic
+  - Gear PCD (
+  - 𝑫
+  - 𝑮
+  - )
+  - 494 mm
+  - Based on Index
+  - Pinion PCD (
+  - 𝑫
+  - 𝑷
+  - )
+  - 98.8 mm
+  - = 
+  - 𝐷
+  - 𝐺
+  -  / 5
+  - Pinion Teeth (
+  - 𝒁
+  - 𝑷
+  - )
+  - 20
+  - Selected 
+  - 𝑍
+  - 𝑃
+  -  should
+  -  be
+  -  avoid
+  -  u
+  - ndercutting (
+  - 𝑍
+  - 𝑃
+  -  > 18)
+  - Module (
+  - 𝒎
+  - )
+  - 4.94 mm
+  - = 98.8 / 20
+  - Gear Teeth (
+  - 𝒁
+  - 𝑮
+  - )
+  - 100
+  - = 100 X 5
+  - Parameter
+  - Value
+  - Derivation Logic
+  - 494 mm
+  - Based on Index
+  - 98.8 mm
+  - 20
+  - 4.94 mm
+  - = 98.8 / 20
+  - 100
+  - = 100 X 5
+  - 3
+
+=== SLIDE 4 (ppt/slides/slide4.xml) ===
+  - Critical Engineering Assumptions
+  - 4
+  - Loading
+  - Given:
+  -  Torque Magnitude = 494
+  - Assumed Unit:
+  -  
+  - Nm
+  -  (Newton Meters)
+  - Reason:
+  -  494 
+  - Nmm
+  -  is negligible for a Ø494mm steel gear. To trigger the 
+  - plastic region
+  -  as requested, a realistic torque of 494 Nm is applied.
+  - Modeling
+  - Geometry:
+  -  Involute Profile generated via 
+  - Solid Edge 2025
+  - .
+  - Reason:
+  -  Sketching in FEA tools is approximate. Dedicated CAD ensures geometric accuracy of the contact interface.
+
+=== SLIDE 5 (ppt/slides/slide5.xml) ===
+  - Simulation Workflow
+  - 5
+  - CAD Modeling
+  - Precise Involute Generation
+  - Use Solid Edge
+  - Pre -Processing
+  - Material (Plasticity), Contact & Mesh
+  - Use Abaqus
+  - Solving
+  - Static General Step (Non – linear)
+  - Use Abaqus
+  - Results &
+  -  
+  - Validation
+  - Stress concentration, Failure & Mesh convergence Study
+  - Use Abaqus
+
+=== SLIDE 6 (ppt/slides/slide6.xml) ===
+  - Material Definition: Stainless Steel
+  - 6
+  - Plastic Properties:
+  - Yield Strength: ~250 MPa
+  - Elastic Properties:
+  - Young's Modulus (
+  - 𝐸
+  - ): 193 GPa (approx.) 
+  - Poisson's Ratio (
+  - 𝜈
+  - ): 0.3
+  -  
+
+=== SLIDE 7 (ppt/slides/slide7.xml) ===
+  - Parametric CAD Generation
+  - 7
+  - Input Parameters based on index calculations
+  - Generated Assembly with precise Involute Profile
+
+=== SLIDE 8 (ppt/slides/slide8.xml) ===
+  - Parametric CAD Generation
+  - 8
+  - Input Parameters based on index calculations
+  - Generated Assembly with precise Involute Profile
+
+=== SLIDE 9 (ppt/slides/slide9.xml) ===
+  - Parametric CAD Generation
+  - 9
+  - Input Parameters based on index calculations
+  - Generated Assembly with precise Involute Profile
+
+=== SLIDE 10 (ppt/slides/slide10.xml) ===
+  - CAD to CAE Integration
+  - 10
+  - Import Format: STEP (.
+  - stp
+  - )
+  - Method: Direct Assembly Import (Maintained Solid Edge coordinates).
+  - Advantage: Eliminates manual positioning errors in FEA environment.
+  - Imported Assembly Abaqus
+
+=== SLIDE 11 (ppt/slides/slide11.xml) ===
+  - Material Definition
+  - 11
+  - Non-linear Material definition with Plasticity data for Stainless Steel
+  - Material: Stainless Steel
+  - Behavior: Elastoplastic
+  - Yield Criterion: Von Mises (Isotropic Hardening).
+
+=== SLIDE 12 (ppt/slides/slide12.xml) ===
+  - 12
+  - Material Assignment successful
+
+=== SLIDE 13 (ppt/slides/slide13.xml) ===
+  - 13
+  - Enabling Non-linear Geometry (
+  - Nlgeom
+  - ) to account for large displacements and contact
+

@@ -1,4 +1,0 @@
-Seed: 28.0 mm | Total Nodes:  144678 | Total Elements:   96239 | (Pinion: 12378, Gear: 83861)
-Seed: 22.0 mm | Total Nodes:  139630 | Total Elements:   91233 | (Pinion: 11056, Gear: 80177)
-Seed: 16.0 mm | Total Nodes:  140518 | Total Elements:   91707 | (Pinion: 11530, Gear: 80177)
-Seed: 12.0 mm | Total Nodes:  156966 | Total Elements:  102134 | (Pinion: 18711, Gear: 83423)

@@ -1,0 +1,207 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.openStep('C:/Users/dirty/Desktop/SpurGearAssembly.stp', scaleFromFile=OFF)
+mdb.models['Model-1'].PartFromGeometryFile(combine=False, dimensionality=
+    THREE_D, geometryFile=mdb.acis, name='SpurGearAssembly-1', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].PartFromGeometryFile(bodyNum=2, combine=False, 
+    dimensionality=THREE_D, geometryFile=mdb.acis, name='SpurGearAssembly-2', 
+    type=DEFORMABLE_BODY)
+# Save by dirty on 2026_09_25-12.41.28; build 2024 2023_09_21-18.25.25 RELr426 190762
+from part import *
+from material import *
+from section import *
+mdb.models['Model-1'].parts.changeKey(fromName='SpurGearAssembly-1', toName=
+    'Pinion')
+mdb.models['Model-1'].parts.changeKey(fromName='SpurGearAssembly-2', toName=
+    'Gear')
+mdb.models['Model-1'].Material(description=
+    'Austenitic Stainless Steel (AISI 304/316) with Plasticity', name=
+    'Stainless_Steel')
+mdb.models['Model-1'].materials['Stainless_Steel'].Density(table=((7.85e-09, ), 
+    ))
+mdb.models['Model-1'].materials['Stainless_Steel'].Elastic(table=((193000.0, 
+    0.3), ))
+mdb.models['Model-1'].materials['Stainless_Steel'].Plastic(table=((240.0, 0.0), 
+    (265.0, 0.0125), (305.0, 0.035), (360.0, 0.075), (440.0, 0.145), (540.0, 
+    0.24), (660.0, 0.37), (780.0, 0.52)))
+mdb.models['Model-1'].HomogeneousSolidSection(material='Stainless_Steel', name=
+    'Stainless_Steel_Section', thickness=None)
+mdb.models['Model-1'].parts['Pinion'].Set(cells=
+    mdb.models['Model-1'].parts['Pinion'].cells, name='Set_Pinion_Body')
+mdb.models['Model-1'].parts['Pinion'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Pinion'].sets['Set_Pinion_Body'], sectionName=
+    'Stainless_Steel_Section', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Gear'].Set(cells=
+    mdb.models['Model-1'].parts['Gear'].cells, name='Set_Gear_Body')
+mdb.models['Model-1'].parts['Gear'].SectionAssignment(offset=0.0, offsetField=
+    '', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Gear'].sets['Set_Gear_Body'], sectionName=
+    'Stainless_Steel_Section', thicknessAssignment=FROM_SECTION)
+# Save by dirty on 2026_09_25-12.51.15; build 2024 2023_09_21-18.25.25 RELr426 190762
+from assembly import *
+from step import *
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Pinion-1', 
+    part=mdb.models['Model-1'].parts['Pinion'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Gear-1', part=
+    mdb.models['Model-1'].parts['Gear'])
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].StaticStep(description=
+    'Apply torque on gears with contact and material plasticity', initialInc=
+    0.01, matrixSolver=DIRECT, matrixStorage=SOLVER_DEFAULT, maxInc=0.05, 
+    maxNumInc=1000, minInc=1e-08, name='Torque_Step', nlgeom=ON, previous=
+    'Initial', timePeriod=1.0)
+del mdb.models['Model-1'].fieldOutputRequests['F-Output-1']
+mdb.models['Model-1'].FieldOutputRequest(createStepName='Torque_Step', name=
+    'F-Output-1', numIntervals=20, variables=('S', 'PE', 'PEEQ', 'U', 'RF', 
+    'RM', 'CSTRESS', 'CDISP'))
+# Save by dirty on 2026_09_25-13.03.30; build 2024 2023_09_21-18.25.25 RELr426 190762
+from interaction import *
+from load import *
+mdb.models['Model-1'].ContactProperty('Gear_Contact_Prop')
+mdb.models['Model-1'].interactionProperties['Gear_Contact_Prop'].TangentialBehavior(
+    directionality=ISOTROPIC, formulation=PENALTY, fraction=0.005, table=((
+    0.15, ), ))
+mdb.models['Model-1'].interactionProperties['Gear_Contact_Prop'].NormalBehavior(
+    allowSeparation=ON, constraintEnforcementMethod=DEFAULT, 
+    pressureOverclosure=HARD)
+mdb.models['Model-1'].ContactStd(createStepName='Initial', name=
+    'Int_Gear_Teeth_Contact')
+mdb.models['Model-1'].interactions['Int_Gear_Teeth_Contact'].contactPropertyAssignments.appendInStep(
+    assignments=((GLOBAL, SELF, 'Gear_Contact_Prop'), ), stepName='Initial')
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=(0.0, 0.0, 15.0))
+mdb.models['Model-1'].rootAssembly.Set(name='Set_RP_Pinion', referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[6], ))
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf_Pinion_Bore', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Pinion-1'].faces.getSequenceFromMask(
+    mask=('[#400000 ]', ), ))
+mdb.models['Model-1'].Coupling(controlPoint=
+    mdb.models['Model-1'].rootAssembly.sets['Set_RP_Pinion'], couplingType=
+    KINEMATIC, influenceRadius=WHOLE_SURFACE, name='Coupling_Pinion_Bore', 
+    surface=mdb.models['Model-1'].rootAssembly.surfaces['Surf_Pinion_Bore'], 
+    u1=ON, u2=ON, u3=ON, ur1=ON, ur2=ON, ur3=ON)
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=(0.0, 296.4, 15.0))
+mdb.models['Model-1'].rootAssembly.Set(name='Set_RP_Gear', referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[9], ))
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf_Gear_Bore', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Gear-1'].faces.getSequenceFromMask(
+    mask=('[#0:3 #40 ]', ), ))
+mdb.models['Model-1'].Coupling(controlPoint=
+    mdb.models['Model-1'].rootAssembly.sets['Set_RP_Gear'], couplingType=
+    KINEMATIC, influenceRadius=WHOLE_SURFACE, name='Coupling_Gear_Bore', 
+    surface=mdb.models['Model-1'].rootAssembly.surfaces['Surf_Gear_Bore'], u1=
+    ON, u2=ON, u3=ON, ur1=ON, ur2=ON, ur3=ON)
+mdb.models['Model-1'].DisplacementBC(createStepName='Initial', name=
+    'BC_Pinion_Fixed', region=
+    mdb.models['Model-1'].rootAssembly.sets['Set_RP_Pinion'], u1=0.0, u2=0.0, 
+    u3=0.0, ur1=0.0, ur2=0.0, ur3=0.0)
+mdb.models['Model-1'].DisplacementBC(createStepName='Initial', name=
+    'BC_Gear_Shaft_Support', region=
+    mdb.models['Model-1'].rootAssembly.sets['Set_RP_Gear'], u1=0.0, u2=0.0, u3=
+    0.0, ur1=0.0, ur2=0.0, ur3=UNSET)
+mdb.models['Model-1'].Moment(cm3=494000.0, createStepName='Torque_Step', name=
+    'Torque_494Nm', region=
+    mdb.models['Model-1'].rootAssembly.sets['Set_RP_Gear'])
+mdb.models['Model-1'].rootAssembly.regenerate()
+# Save by dirty on 2026_09_25-13.10.31; build 2024 2023_09_21-18.25.25 RELr426 190762
+from mesh import *
+from job import *
+mdb.models['Model-1'].parts['Pinion'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Pinion'].cells, technique=FREE)
+mdb.models['Model-1'].parts['Pinion'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Model-1'].parts['Pinion'].cells, ))
+mdb.models['Model-1'].parts['Gear'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Gear'].cells, technique=FREE)
+mdb.models['Model-1'].parts['Gear'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Model-1'].parts['Gear'].cells, ))
+mdb.models['Model-1'].parts['Pinion'].seedPart(deviationFactor=0.1, size=16.0)
+mdb.models['Model-1'].parts['Pinion'].generateMesh()
+mdb.models['Model-1'].parts['Gear'].seedPart(deviationFactor=0.1, size=16.0)
+mdb.models['Model-1'].parts['Gear'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(description='Convergence Study Level 1 (Seed=16.0mm) - SS304/316', 
+    memory=70, memoryUnits=PERCENTAGE, model='Model-1', multiprocessingMode=
+    DEFAULT, name='Job_Mesh1_16mm', numCpus=4, numDomains=4, resultsFormat=ODB, 
+    type=ANALYSIS)
+mdb.models['Model-1'].parts['Pinion'].seedPart(deviationFactor=0.1, size=12.0)
+mdb.models['Model-1'].parts['Pinion'].generateMesh()
+mdb.models['Model-1'].parts['Gear'].seedPart(deviationFactor=0.1, size=12.0)
+mdb.models['Model-1'].parts['Gear'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(description='Convergence Study Level 2 (Seed=12.0mm) - SS304/316', 
+    memory=70, memoryUnits=PERCENTAGE, model='Model-1', multiprocessingMode=
+    DEFAULT, name='Job_Mesh2_12mm', numCpus=4, numDomains=4, resultsFormat=ODB, 
+    type=ANALYSIS)
+mdb.models['Model-1'].parts['Pinion'].seedPart(deviationFactor=0.1, size=9.0)
+mdb.models['Model-1'].parts['Pinion'].generateMesh()
+mdb.models['Model-1'].parts['Gear'].seedPart(deviationFactor=0.1, size=9.0)
+mdb.models['Model-1'].parts['Gear'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(description='Convergence Study Level 3 (Seed=9.0mm) - SS304/316', 
+    memory=70, memoryUnits=PERCENTAGE, model='Model-1', multiprocessingMode=
+    DEFAULT, name='Job_Mesh3_9mm', numCpus=4, numDomains=4, resultsFormat=ODB, 
+    type=ANALYSIS)
+mdb.models['Model-1'].parts['Pinion'].seedPart(deviationFactor=0.1, size=6.0)
+mdb.models['Model-1'].parts['Pinion'].generateMesh()
+mdb.models['Model-1'].parts['Gear'].seedPart(deviationFactor=0.1, size=6.0)
+mdb.models['Model-1'].parts['Gear'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(description='Convergence Study Level 4 (Seed=6.0mm) - SS304/316', 
+    memory=70, memoryUnits=PERCENTAGE, model='Model-1', multiprocessingMode=
+    DEFAULT, name='Job_Mesh4_6mm', numCpus=4, numDomains=4, resultsFormat=ODB, 
+    type=ANALYSIS)
+# Save by dirty on 2026_09_25-13.21.50; build 2024 2023_09_21-18.25.25 RELr426 190762
+from mesh import *
+from job import *
+mdb.models['Model-1'].parts['Pinion'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Pinion'].cells, technique=FREE)
+mdb.models['Model-1'].parts['Pinion'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Model-1'].parts['Pinion'].cells, ))
+mdb.models['Model-1'].parts['Gear'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Gear'].cells, technique=FREE)
+mdb.models['Model-1'].parts['Gear'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Model-1'].parts['Gear'].cells, ))
+mdb.models['Model-1'].parts['Pinion'].seedPart(deviationFactor=0.2, size=20.0)
+mdb.models['Model-1'].parts['Pinion'].generateMesh()
+mdb.models['Model-1'].parts['Gear'].seedPart(deviationFactor=0.2, size=20.0)
+mdb.models['Model-1'].parts['Gear'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(description='Convergence Study Point 1 (Seed=20mm) - 81k elements', 
+    memory=70, memoryUnits=PERCENTAGE, model='Model-1', multiprocessingMode=
+    DEFAULT, name='Job_Mesh0_20mm', numCpus=4, numDomains=4, resultsFormat=ODB, 
+    type=ANALYSIS)
+# Save by dirty on 2026_09_25-15.09.44; build 2024 2023_09_21-18.25.25 RELr426 190762
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.meshEditOptions.setValues(enableUndo=True, maxUndoCacheElements=0.5)
+del mdb.jobs['Job_Mesh4_6mm']
+# Save by dirty on 2026_09_25-17.18.25; build 2024 2023_09_21-18.25.25 RELr426 190762

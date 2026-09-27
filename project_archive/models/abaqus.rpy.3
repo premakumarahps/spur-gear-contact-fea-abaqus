@@ -1,0 +1,50 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2024 replay file
+# Internal Version: 2023_09_21-18.25.25 RELr426 190762
+# Run by dirty on Fri Sep 25 13:24:50 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=158.484375, 
+    height=105.874992370605)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('SpurGearSimul.cae')
+#: The model database "D:\1.Antigravity Projects\13_Abaqus_Simulation\models\SpurGearSimul.cae" has been opened.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['Gear']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['Pinion']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=215.787, 
+    farPlane=437.536, width=198.389, height=100.849, viewOffsetX=6.90595, 
+    viewOffsetY=5.21991)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=228.482, 
+    farPlane=416.218, width=210.061, height=106.782, cameraPosition=(85.2257, 
+    195.612, 256.631), cameraUpVector=(-0.278778, 0.5518, -0.786002), 
+    cameraTarget=(-1.04649, -1.15032, 10.5634), viewOffsetX=7.31225, 
+    viewOffsetY=5.52702)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=237.343, 
+    farPlane=400.117, width=218.208, height=110.923, cameraPosition=(118.581, 
+    64.5667, 303.727), cameraUpVector=(-0.327283, 0.843752, -0.425404), 
+    cameraTarget=(-0.970856, -2.27497, 7.16816), viewOffsetX=7.59584, 
+    viewOffsetY=5.74138)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)

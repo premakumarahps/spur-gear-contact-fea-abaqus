@@ -1,6 +1,0 @@
-
-Part: SpurGearAssembly-1
-  Inner radius samples: [9.99999971286825, 32.1205246873248, 32.1340556205896]
-
-Part: SpurGearAssembly-2
-  Inner radius samples: [9.99999994049729]

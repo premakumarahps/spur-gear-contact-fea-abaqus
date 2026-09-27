@@ -1,9 +1,0 @@
-Parts in Model: ['Gear', 'Pinion']
-Materials in Model: ['Stainless_Steel']
-  Elastic: ((193000.0, 0.3),)
-  Plastic: ((240.0, 0.0), (265.0, 0.0125), (305.0, 0.035), (360.0, 0.075), (440.0, 0.145), (540.0, 0.24), (660.0, 0.37), (780.0, 0.52))
-Sections in Model: ['Stainless_Steel_Section']
-Part Pinion Section Assignments:
-  - Section: Stainless_Steel_Section
-Part Gear Section Assignments:
-  - Section: Stainless_Steel_Section

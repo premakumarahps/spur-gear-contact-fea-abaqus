@@ -1,7 +1,0 @@
-Instances in Assembly: ['Pinion-1', 'Gear-1']
-  - Pinion-1: Part=Pinion
-  - Gear-1: Part=Gear
-
-Steps in Model: ['Initial', 'Torque_Step']
-  - Step: Initial (Type=InitialStep)
-  - Step: Torque_Step (Type=StaticStep)
